@@ -1,6 +1,8 @@
-Let’s get a package called Moment
+Create a package.json file by running:
+npm init
 
-npm install moment
+Let’s get a package called Moment, put it into package.json
+npm install moment --save
 
 notice that node_modules directory is created
 
@@ -10,6 +12,4 @@ console.log(moment().format('MM-DD-YYYY'));
 
 execute using node timeExample.js or leave off the .js extension
 
-this is close to the demo
-what are some other common packages they can work with
-for some JS coding usage?
+
