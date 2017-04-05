@@ -6,3 +6,5 @@ Navigate to a command window for this directory
 
 npm install moment
 
+run using:
+ node timeExample.js
