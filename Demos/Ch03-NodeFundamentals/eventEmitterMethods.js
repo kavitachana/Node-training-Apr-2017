@@ -1,37 +1,37 @@
-var events = require('events');
-var eventEmitter = new events.EventEmitter();
+const events = require("events");
 
-// listener #1
-var listner1 = function listner1() {
-   console.log('listner1 executed.');
+function createDoorbell(sound) {
+	function ring() {
+		this.emit("ring", sound);
+	}
+
+	return Object.assign(new events.EventEmitter(), {
+		ring: ring
+	});
 }
 
-// listener #2
-var listner2 = function listner2() {
-  console.log('listner2 executed.');
+let doorbell = createDoorbell("RRRRRRING!");
+
+doorbellHandler = function(sound) {
+    console.log("The doorbell rang!", sound);
 }
 
-// Bind the connection event with the listner1 function
-eventEmitter.addListener('connection', listner1);
+console.log("Ringing multiple times:");
 
-// Bind the connection event with the listner2 function
-eventEmitter.on('connection', listner2);
+doorbell.on("ring", doorbellHandler);
 
-var eventListeners = require('events').EventEmitter.listenerCount
-   (eventEmitter,'connection');
-console.log(eventListeners + " Listner(s) listening to connection event");
+doorbell.ring(); // Prints: The doorbell rang! RRRRRRING!
+doorbell.ring(); // Prints: The doorbell rang! RRRRRRING!
 
-// Fire the connection event 
-eventEmitter.emit('connection');
+console.log("Removing listener");
 
-// Remove the binding of listner1 function
-eventEmitter.removeListener('connection', listner1);
-console.log("Listner1 will not listen now.");
+doorbell.removeListener("ring", doorbellHandler);
 
-// Fire the connection event 
-eventEmitter.emit('connection');
+doorbell.ring(); // Nothing happens, because the handler was removed
 
-eventListeners = require('events').EventEmitter.listenerCount(eventEmitter,'connection');
-console.log(eventListeners + " Listner(s) listening to connection event");
+console.log("Ringing multiple times, but only adding a single-use event listener:");
 
-console.log("Program Ended.");
+doorbell.once("ring", doorbellHandler);
+
+doorbell.ring(); // Prints: The doorbell rang! RRRRRRING!
+doorbell.ring(); // Nothing happens, because the handler was added using `.once` instead of `.on`, and therefore automatically removed after the first ring
