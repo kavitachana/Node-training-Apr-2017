@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Load Bands from JSON file</title>
+
+</head>
+<body>
+<div id="showBands"></div>
+
+<script>
+
+
+
+var xmlhttp = new XMLHttpRequest();
+var url = "data/myBands.json";
+
+xmlhttp.onreadystatechange = function() {
+if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+    var myArr = JSON.parse(xmlhttp.responseText);
+    myFunction(myArr);
+    }
+};
+
+xmlhttp.open("GET", url, true);
+xmlhttp.send();
+
+function myFunction(jsonData) {
+    var out = "";
+    var bands = jsonData.bands.band;
+    var i;
+    for(i = 0; i < bands.length; i++) {
+        out += bands[i].name + ' was formed ' + bands[i].yearFormed + ' in '+ bands[i].city + '<br/>';
+    }
+    document.getElementById("showBands").innerHTML = out;
+}
+
+
+</script>
+
+</body>
+</html>

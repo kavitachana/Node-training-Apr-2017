@@ -1,0 +1,85 @@
+{
+  "band": [
+    {
+      "name": "Pink Floyd",
+      "city": "London",
+      "country": "England",
+      "yearFormed": "1965",
+      "genres": [
+        "Progressive rock",
+        "psychedelic rock",
+        "art rock"
+      ],
+      "id": 1
+    },
+    {
+      "name": "Morphine",
+      "country": "USA",
+      "city": "Boston",
+      "yearFormed": "1990",
+      "genres": [
+        "Alternative rock",
+        "experimental rock",
+        "jazz rock"
+      ],
+      "id": 2
+    },
+    {
+      "name": "Vitamin String Quartet",
+      "country": "USA",
+      "city": "Los Angeles",
+      "yearFormed": "1999",
+      "genres": [
+        "Rock",
+        "Pop",
+        "Instrumental"
+      ],
+      "id": 3
+    },
+    {
+      "name": "Slipknot",
+      "city": "Des Moines",
+      "country": "USA",
+      "yearFormed": "1995",
+      "genres": [
+        "Heavy Metal",
+        "Nu Metal"
+      ],
+      "id": 4
+    },
+    {
+      "name": "Sublime",
+      "city": "Long Beach, CA",
+      "country": "USA",
+      "yearFormed": "1988",
+      "genres": [
+        "Punk",
+        "Ska",
+        "Reggae-rock"
+      ],
+      "id": 5
+    },
+    {
+      "name": "Korn",
+      "city": "Bakersfield, CA",
+      "country": "USA",
+      "yearFormed": "1992",
+      "genres": [
+        "Nu Metal",
+        "Alternative"
+      ],
+      "id": 6
+    },
+    {
+      "name": "Portishead",
+      "city": "Bristol",
+      "country": "UK",
+      "yearFormed": "1991",
+      "genres": [
+        "Experimental",
+        "Trip Hop"
+      ],
+      "id": 7
+    }
+  ]
+}

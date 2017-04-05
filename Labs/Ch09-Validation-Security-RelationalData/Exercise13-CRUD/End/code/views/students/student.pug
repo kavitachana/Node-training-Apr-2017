@@ -1,0 +1,42 @@
+extends ../layout
+
+block content
+	header.page-header
+		h1 #{student.nameFirst} Details
+
+	.col-md-1
+
+	.student.col-md-10
+		.container-fluid
+			img.student-icon(src='../img/student-icon.svg', alt='Student Icon', style='width: 100px;')
+			ul.pull-right(style='margin: 25px 15px;list-style: none;')
+				li
+					label.student-details #{student.nameFirst} #{student.nameLast}
+				li
+					label.student-details Hire Date:
+					span  #{student.hireDate.format("MM/DD/YYYY")}
+				li
+					label.student-details Email:
+					span  #{student.email}
+		-var htmlProgress = student.htmlSkill / 10 * 100
+			label HTML: #{htmlProgress}
+			.progress
+				.progress-bar(role='progressbar', aria-valuenow=htmlProgress, aria-valuemin='0', aria-valuemax='100', style=`width: ${htmlProgress}%`)
+					span.sr-only #{student.htmlSkill}
+		-var cssProgress = student.cssSkill / 10 * 100
+			label CSS: #{cssProgress}
+			.progress
+				.progress-bar(role='progressbar', aria-valuenow=cssProgress, aria-valuemin='0', aria-valuemax='100', style=`width: ${cssProgress}%`)
+					span.sr-only #{student.cssSkill}
+		-var jsProgress = student.jsSkill / 10 * 100
+			label Javascript: #{jsProgress}
+			.progress
+				.progress-bar(role='progressbar', aria-valuenow=jsProgress, aria-valuemin='0', aria-valuemax='100', style=`width: ${jsProgress}%`)
+					span.sr-only #{student.jsSkill}
+		.container-fluid
+			a.btn.btn-warning.pull-right(href=`/students/${student.id}/update`) Edit
+			form(method="post", action=`/students/${student.id}/delete`)
+				input(type="hidden", name="_csrf", value=csrfToken)
+				button.btn.btn-danger.pull-right(type="submit") Delete
+
+	.col-md-1

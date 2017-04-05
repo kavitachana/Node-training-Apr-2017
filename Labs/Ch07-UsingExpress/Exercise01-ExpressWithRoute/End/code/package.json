@@ -1,0 +1,16 @@
+{
+  "name": "student-management-example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["example"],
+  "author": "Judy Lipinski, Karmoxie",
+  "license": "WTFPL",
+  "dependencies": {
+    "express": "^4.15.2"
+  }
+}

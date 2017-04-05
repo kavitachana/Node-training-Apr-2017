@@ -1,0 +1,55 @@
+extends ../layout
+
+block content
+	header.page-header
+		h1 Add Student
+
+	div.col-md-2
+
+	div.col-md-8
+		form.form-group(method='post', action='/students/create')
+			input(type="hidden", name="_csrf", value=csrfToken)
+
+			h2 New Student Details
+			.col-md-6
+				label First Name:
+				+valueInput(true, "text", "nameFirst")
+			.col-md-6
+				label Last Name:
+				+valueInput(true, "text", "nameLast")
+			.col-md-6
+				label Email:
+				+valueInput(true, "email", "email")
+			.col-md-6
+				label Hire Date (mm/dd/yyyy):
+				+valueInput(true, "date", "hireDate")
+			h2 Skills
+			.col-md-12
+				label HTML:
+				span#htmlSkill  0
+				input.form-control(type='range', min='0', max='10', name='html', onchange='showHtml(this.value)', value=(body.html || "0"))
+			.col-md-12
+				label CSS:
+				span#cssSkill  0
+				input.form-control(type='range', min='0', max='10', name='css', onchange='showCss(this.value)', value=(body.css || "0"))
+			.col-md-12
+				label Javascript:
+				span#jsSkill  0
+				input.form-control(type='range', min='0', max='10', name='js', onchange='showJs(this.value)', value=(body.js || "0"))
+			br
+			br
+			.col-md-12(style="text-align: center;")
+				button.btn.btn-success#btnSubmit(type='submit') Submit
+
+	div.col-md-2
+
+	script(type='text/javascript').
+		function showHtml(val) {
+			document.getElementById("htmlSkill").innerHTML = ' ' + val;
+		}
+		function showCss(val) {
+			document.getElementById("cssSkill").innerHTML = ' ' + val;
+		}
+		function showJs(val) {
+			document.getElementById("jsSkill").innerHTML = ' ' + val;
+		}

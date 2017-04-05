@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Add Band</title>
+    </head>
+    <body>
+        <nav>
+            <ul>
+                <li><a href="index.html">Bands</a></li>
+                <li><a href="addBand.html">Add Band</a></li>
+                <li><a href="deleteBand.html">Delete Band</a></li>
+            </ul>
+        </nav>
+
+        <form id="myForm" name="myForm">
+            <div>
+                <label for="name">Band Name:</label>
+                <input type="text" id="name" name="name">
+            </div>
+            <div>
+                <label for="city">Origin City:</label>
+                <input type="text" id="city" name="city">
+            </div>
+            <div>
+                <label for="country">Origin Country:</label>
+                <input type="text" id="country" name="country">
+            </div>
+            <div>
+                <label for="yearFormed">Year Formed:</label>
+                <input type="text" id="yearFormed" name="yearFormed">
+            </div>
+            <div>
+                <label for="genres">Genres (comma delimited):</label>
+                <input type="text" id="genres" name="genres">
+            </div>
+            <input type="submit" value="Submit" onclick="addBand()">
+        </form>
+
+        <script src="js/addBand.js"></script>
+    </body>
+</html>

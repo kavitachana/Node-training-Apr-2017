@@ -1,0 +1,98 @@
+View the README.md
+
+1. Install: `body-parser`, `express-session`
+2. (server.js) Require the modules:
+	1. `body-parser` as `bodyParser`
+	2. `express-session` as `expressSession`
+3. (server.js) Call the `bodyParser.urlencoded()` method and `router.use` the resulting middleware. Note that the `express.static` middleware should always come first, so you should add `bodyParser` and other middlewares *after* that. The `bodyParser.urlencoded()` method expects one argument: [note that the bodyParser middleware is responsible for parsing request bodies, this should probably be explicitly in the slides]
+ 	1. A configuration object for bodyParser. In this case you just want to set `extended` to `true`, which allows for more complicated request bodies involving eg. arrays. Example:
+		bodyParser.urlencoded({extended: true})
+4. (server.js) Call `expressSession` with your session configuration, and `router.use` the resulting session-handling middleware. Like `bodyParser`, `expressSession` will expect a single configuration object as an argument. There are three options you need to specify:
+	1. `secret` should use the `config.sessions.secret` value (which comes from `config.json`). This is used as a cryptographical key to prevent tampering with the session cookie that is sent to the user.
+	2. `resave` should be `false` - this option indicates that the session data should *only* be saved if it has been modified, instead of on every request.
+	3. `saveUninitialized` should be `false` - this option indicates that the session shouldn't be created and saved until it's used for the first time. In practice this means that the session is only (automatically) created once the user logs in.
+5. Create a new file at `middleware/sessions-promises.js`.
+6. Install: `bluebird`
+7. (middleware/sessions-promises.js) Require the `bluebird` library as `Promise`:
+	const Promise = require("bluebird");
+8. (middleware/sessions-promises.js) Assign a new middleware function to `module.exports`, that: [ref https://expressjs.com/en/guide/writing-middleware.html]
+	1. Calls `Promise.promisify` with the following arguments, and assign the result to `req.saveSession`:
+		1. `req.session.save`, which is the method you want to promisify
+		2. A configuration object `{context: req.session}`, which ensures that the `this` value (context) within your promisified method always correctly points at `req.session`, no matter how you call the promisified method
+	2. Does the same for `req.session.destroy`, assigning the result to `req.destroySession`
+	3. Does the same for `req.session.reload`, assigning the result to `req.reloadSession`
+	4. Calls `next()` to signify that the middleware has been completed
+9. (server.js) Require the new `./middleware/sessions-promises` module, and `router.use` it, *after* the `expressSession` middleware. This will ensure that you can use promisified versions of common asynchronous session data operations, from within your routes and other middleware.
+10. Run `node generate-secret-key` in the Begin folder to generate a secure secret key, and modify `config.json` to specify it as the `sessions.secret` property:
+	"sessions": {
+		"secret": "<secret key goes here>"
+	}
+11. Create a new file `errors.js`. This will contain custom error types.
+12. Install: `create-error`
+13. (errors.js) Require `create-error` as `createError`
+14. (errors.js) Assign to module.exports a new object, containing two keys:
+	1. The value for `AuthenticationError` should be the result of calling `createError` with two arguments:
+		1. The string "AuthenticationError", which is the name of your custom error (and is the same as the object key in which you're storing it)
+		2. The custom properties for each error of this type, as an object containing two keys:
+			1. `isCustomError` should be `true`
+			2. `statusCode` should be `401`, which is the HTTP status code for authentication errors
+	2. The value for `ValidationError` should be created similarly, but with two differences:
+		1. The error name should be "ValidationError" instead
+		2. The `statusCode` should be `422` instead
+15. Create a new file at `routes/users.js`. This is going to contain the router that specifies all authentication-related routes (eg. login).
+16. (routes/users.js) Require `bluebird` as `Promise`, and `../errors` as `errors`
+17. (routes/users.js) Create a new router, by requiring `express-promise-router` and immediately calling the function it returns:
+	let router = require("express-promise-router")();
+18. (routes/users.js) Specify a new GET route for the `/login` URL, by calling `router.get()` with two arguments:
+	1. The string "/login"
+	2. The route callback to execute for this URL, which is a callback that takes two arguments (`req` and `res`) and that:
+		1. Calls `res.render()` with the string "admin/login" as its only argument - this is the template that will be rendered when the user navigates to the login page.
+19. (routes/users.js) Specify a new POST route for the `/login` URL, by calling `router.post()` (note: not `router.get()`!) with two arguments:
+	1. The string "/login"
+	2. The route callback to execute for this URL, which:
+		1. Starts a new Promise chain by calling `Promise.try()` with a callback that: [recommended to show this entire chain on a slide upfront, or students will likely miss how it all ties together]
+			1. Checks whether `req.body.password` equals the string "secretpassword".
+				If yes, meaning a successful login:
+					1. Set `req.session.loggedIn` to `true`
+					2. Start a new, nested Promise chain by calling `Promise.try()`, with a callback that returns the result of calling `req.saveSession()` (which is a Promise representing the operation of saving the changed session data in `req.session`)
+					3. Chain onto the `Promise.try` by calling `.then()` with a callback that calls `res.redirect("/")` - this redirects the user to the homepage after the session has been saved.
+				If no:
+					1. Throw a new `AuthenticationError` using the custom error type we defined in `errors.js`:
+						throw new errors.AuthenticationError("Incorrect password");
+20. (routes/users.js) Assign the `router` to `module.exports` to export it from the module.
+21. (server.js) Require the `./routes/users.js` module we just created, and pass it to `router.use`, right after our existing `./routes/index.js` entry. This makes the routes available in the application.
+22. Create a new file at `middleware/require-login.js`. This is going to be a middleware that prevents access to users that have not been authenticated.
+23. (middleware/require-login.js) Require `../errors` as `errors`
+24. (middleware/require-login.js) Assign to `module.exports` a new `(req, res, next)` middleware, that:
+	1. Checks whether `req.session.loggedIn` equals `true`.
+		If yes:
+			1. Call `next()` to let the request through.
+		If no:
+			1. Call `next()` with a single argument:
+				1. A new `AuthenticationError` telling the user that they do not have access:
+					`next(new errors.AuthenticationError("You must be logged in to access this page."))`
+25. (routes/index.js) Require `../middleware/require-login` as `requireLogin`
+26. (routes/index.js) In your existing `router.get` call that defines the `/` route, add an argument *before* the existing route callback, but *after* the path:
+	1. The `requireLogin` middleware. This will simply look like:
+		router.get("/", requireLogin, (req, res) => { ...
+27. (middleware/error-handler.js) Modify the error-handling middleware to:
+	1. Check whether `err.isCustomError` is true and the `err.statusCode` is not null; if yes, assign the `err.statusCode` to a new `statusCode` variable; if no, assign `500` to it instead:
+		let statusCode;
+
+		if (err.isCustomError && err.statusCode != null) {
+			statusCode = err.statusCode;
+		} else {
+			statusCode = 500;
+		}
+	2. Create a new `errorMessage` variable, and check whether either `isInDevelopmentMode` is `true` or the `statusCode` is in the 4XX range, indicating that we should show the original error message to the client.
+		If yes:
+			1. Assign the `err.message` to `errorMessage`
+		If no:
+			1. Assign a default message to `errorMessage` based on the `statusCode`; this default message can be obtained by accessing `http.STATUS_CODES[statusCode]`.
+	3. Check whether the `statusCode` is *outside* of the 4XX range.
+		If yes:
+			1. Log the `err.stack` property by calling `console.error()` with it as an argument. This logs a stacktrace to the terminal for any unexpected errors.
+	4. Change the `errorReporter.report()` call to *only* happen if the `statusCode` is `500`, because these are the only errors that are likely to be bugs.
+	5. Change the `res.render()` call to send the `statusCode` instead of a hardcoded `500` value, and to display the previously determined `errorMessage` instead of a hardcoded "Internal Server Error" message.
+
+[... template modification steps missing ...]

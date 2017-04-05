@@ -1,0 +1,8 @@
+{
+  "name": "middleware-body-parser",
+  "version": "1.0.0",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2"
+  }
+}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>jQuery AJAX Demo - Add Band</title>
+
+        <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Raleway:400,300,600">
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+
+    <body>
+        <div class="container">
+            <header>
+                <h2>Bands Database, jQuery Demo</h2>
+            </header>
+
+            <nav class="navbar">
+                <div class="container">
+                    <ul class="nav-list">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Bands</a></li>
+                        <li class="nav-item"><a class="nav-link" href="addBand.html">Add Band</a></li>
+                    </ul>
+                </div>
+            </nav>
+
+            <form id="myForm" name="myForm">
+                <div>
+                    <label for="name">Band Name:</label>
+                    <input type="text" id="name" name="name">
+                </div>
+                <div>
+                    <label for="city">Origin City:</label>
+                    <input type="text" id="city" name="city">
+                </div>
+                <div>
+                    <label for="country">Origin Country:</label>
+                    <input type="text" id="country" name="country">
+                </div>
+                <div>
+                    <label for="yearFormed">Year Formed:</label>
+                    <input type="text" id="yearFormed" name="yearFormed">
+                </div>
+                <div>
+                    <label for="genres">Genres:</label>
+                    <input type="text" id="genres" name="genres">
+                </div>
+                <input type="submit" value="Submit" onclick="addBand()">
+            </form>
+        </div>
+
+        <!-- Initialize jQuery and Scripts -->
+        <script src="https://code.jquery.com/jquery-3.1.1.js"
+                integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="
+                crossorigin="anonymous"></script>
+
+        <script src="js/addBand.js"></script>
+    </body>
+
+</html>

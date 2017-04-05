@@ -1,0 +1,16 @@
+View the README.md
+
+1. Install Pug: `npm install --save pug`
+2. (server.js) Require the `pug` library as a `const` named `pug`
+3. (server.js) Call the `app.set()` method with the following arguments: [app.set is for configuring Express options]
+	1. The string "views", which indicates the setting to configure
+	2. The result of calling the `path.join()` method with the following arguments: [this combines two or more path segments into a single path]
+		1. `__dirname`, which is a special variable, that contains the path of the folder that the script it's used in exists in - so, in this case, the folder that contains `server.js`
+		2. The string "views", which is the name of the folder where we're storing the view files (templates)
+4. (server.js) Call the `app.set()` method with the following arguments:
+	1. The string "view engine"
+	2. The string "pug"
+5. (routes/index.js) Change the route to, instead of calling `res.send`, call `res.render` with one argument:
+	1. The string "index", which is the filename (without extension) of the view that we want to render
+
+[... template modification steps missing ...]

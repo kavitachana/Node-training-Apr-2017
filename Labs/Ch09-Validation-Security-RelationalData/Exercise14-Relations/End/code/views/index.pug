@@ -1,0 +1,32 @@
+extends layout
+
+block content
+	header.page-header
+		h1 Student Manager Application
+
+	.search.container-fluid(style="text-align: center;")
+		.col-md-3
+		form.col-md-6
+			input.form-control#inputSearch(type="text", onkeyup="filter()", placeholder="Search (name, email or hire date)")
+		.col-md-3
+		.col-md-12
+			a.btn.btn-success(href="students/create") New Student
+			form(method='POST', action='/generate')
+				input(type="hidden", name="_csrf", value=csrfToken)
+				button.btn.btn-warning(type='submit') Generate Students
+
+	.col-md-2
+
+	.students.col-md-8
+		table.table#studentList
+			thead
+				th Name
+				th Email
+				th Hire Date
+			each student in students
+				tr(onclick=`location.href='students/${student.id}';`)
+					td #{student.nameFirst} #{student.nameLast}
+					td #{student.email}
+					td #{student.hireDate.format("MM/DD/YYYY")}
+
+	.col-md-2

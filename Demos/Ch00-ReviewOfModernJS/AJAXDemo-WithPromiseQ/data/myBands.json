@@ -1,0 +1,27 @@
+{  
+   "bands":{  
+      "band":[  
+         {  
+            "name":"Pink Floyd",
+            "city":"London",
+            "country":"England",
+            "yearFormed":"1965",
+            "genres":[  "Progressive rock","psychedelic rock","art rock"]
+         },
+         {  
+            "name":"Morphine",
+            "country":"USA",
+            "city":"Boston",
+            "yearFormed":"1990",
+            "genres":[  "Alternative rock","experimental rock","jazz rock"]
+         } ,
+         {  
+            "name":"Vitamin String Quartet",
+            "country":"USA",
+            "city":"Los Angeles",
+            "yearFormed":"1999",
+            "genres":[  "Rock","Pop", "Instrumental"]
+         }
+      ]
+   }
+}

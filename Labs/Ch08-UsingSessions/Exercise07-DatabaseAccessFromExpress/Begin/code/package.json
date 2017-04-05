@@ -1,0 +1,28 @@
+{
+  "name": "student-management-example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@git.cryto.net:joepie91/student-management-example.git"
+  },
+  "keywords": ["example"],
+  "author": "Sven Slootweg",
+  "license": "WTFPL",
+  "dependencies": {
+    "bluebird": "^3.5.0",
+    "body-parser": "^1.17.1",
+    "create-error": "^0.3.1",
+    "express": "^4.15.2",
+    "express-promise-router": "^1.1.1",
+    "express-session": "^1.15.1",
+    "moment": "^2.18.1",
+    "pug": "^2.0.0-beta11",
+    "unhandled-error": "^1.0.0"
+  }
+}

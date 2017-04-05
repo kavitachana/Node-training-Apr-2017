@@ -1,0 +1,11 @@
+1. Examine the code in 
+simpleServer.js
+
+2. Run simpleServer.js
+$node simpleServer
+
+3. Navigate to 
+http://localhost:3000
+
+4. Stop the server and now examine and
+run simpleServer2

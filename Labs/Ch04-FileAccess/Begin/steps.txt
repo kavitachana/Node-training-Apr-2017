@@ -1,0 +1,38 @@
+Overview:
+
+Create a program called CopyBegin.js
+that will copy  code that will execute 
+
+CopyBegin.js should look in the parent directory
+../  for a Begin folder.
+ 
+If it finds it, it will copy its contents to a new folder
+../WIP
+ 
+in the end there should been
+
+ /Begin/CopyBegin.js
+ /WIP/CopyBegin.js
+
+This utility can be used in future exercises.
+
+This way you can work in the WIP folder
+during the course, and will still have the Begin
+files if you need them.
+
+(instead of copying directly) 
+
+**
+
+If you feel confident you can start this exercise now.
+Otherwise, you can review the steps below
+
+**
+
+1. create the file CopyBegin.js
+2. in the file, require fs-extra
+3.
+4.
+5.
+
+

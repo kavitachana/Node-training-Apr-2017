@@ -1,0 +1,104 @@
+/* General BS overrides */
+body {
+	background: rgb(25, 75, 25);
+	color: #3c763d
+}
+
+nav, .navbar {
+	font-weight: bold;
+	box-shadow: 0 0 15px 10px rgb(200, 200, 200);
+}
+
+thead {
+	background: rgb(230, 230, 230);
+}
+
+.content {
+	min-height: 860px;
+	background: rgba(230, 230, 230, .75);
+	padding-bottom: 30px;
+}
+
+.footer {
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	height: 40px;
+	background-color: rgb(230, 230, 230);
+}
+
+.footer>div>ul>li>a {
+	color: rgb(50, 50, 50);
+}
+
+.page-header {
+	text-align: center;
+}
+
+.btn-success {
+	margin: 10px 5px;
+	color: rgb(255, 255, 255);
+	background-color: rgb(25, 75, 25);
+	border-color: rgb(0, 50, 0);
+}
+
+.btn-success:hover {
+	margin: 10px 5px;
+	color: rgb(255, 255, 255);
+	background-color: rgb(50, 125, 50);
+	border-color: rgb(0, 50, 0);
+}
+
+.btn {
+	margin: 10px 5px;
+}
+
+.form-control {
+	margin-bottom: 10px;
+}
+
+/* Tools */
+.break-timer {
+	background: rgba(230, 230, 230, .75);
+	border: solid 1px rgba(25, 75, 25, .75);
+	border-radius: 5px;
+	margin-top: 5px;
+	text-align: center;
+}
+
+.timer > label {
+	font-size: 48px;
+}
+
+#clockdiv {
+	font-family: sans-serif;
+	display: inline-block;
+	font-weight: 100;
+	text-align: center;
+	font-size: 30px;
+}
+
+#clockdiv > div {
+	padding: 10px;
+	border-radius: 3px;
+	display: inline-block;
+}
+
+#clockdiv div > span {
+	padding: 15px;
+	border-radius: 3px;
+	display: inline-block;
+}
+
+.random-student {
+	background: rgba(230, 230, 230, .75);
+	border: solid 1px rgba(25, 75, 25, .75);
+	border-radius: 5px;
+	margin-top: 5px;
+	text-align: center;
+}
+
+#student {
+	color: rgb(100, 25, 25);
+}

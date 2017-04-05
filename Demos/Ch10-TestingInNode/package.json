@@ -1,0 +1,17 @@
+{
+  "name": "bands",
+  "version": "0.0.1",
+  "private": true,
+  "description": "My awesome band code",
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha test/"
+  },
+  "author": "Me",
+  "license": "MIT",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-as-promised": "^6.0.0",
+    "mocha": "^2.3.3",
+    "sinon": "^1.17.2"
+  }
+}

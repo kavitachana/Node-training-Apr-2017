@@ -1,0 +1,55 @@
+extends ../layout
+
+block content
+	header.page-header
+		h1 Edit #{student.nameFirst}'s Details
+
+	div.col-md-2
+
+	div.col-md-8
+
+		form.form-group(method='post', action=`/students/${student.id}/update`)
+			input(type="hidden", name="_csrf", value=csrfToken)
+				
+			div.col-md-6
+				label First Name:
+				+valueInput(true, "text", "nameFirst", student.nameFirst)
+			div.col-md-6
+				label Last Name:
+				+valueInput(true, "text", "nameLast", student.nameLast)
+			div.col-md-6
+				label Email:
+				+valueInput(true, "email", "email", student.email)
+			div.col-md-6
+				label Hire Date:
+				+valueInput(true, "date", "hireDate", student.hireDate.format("MM/DD/YYYY"))
+			.col-md-12
+				label HTML:
+				span#htmlSkill  #{student.htmlSkill}
+				input.form-control(type='range', min='0', max='10', name='html', onchange='showHtml(this.value)', value=(body.html || student.htmlSkill))
+			.col-md-12
+				label CSS:
+				span#cssSkill #{student.cssSkill}
+				input.form-control(type='range', min='0', max='10', name='css', onchange='showCss(this.value)', value=(body.css || student.cssSkill))
+			.col-md-12
+				label Javascript:
+				span#jsSkill  #{student.jsSkill}
+				input.form-control(type='range', min='0', max='10', name='js', onchange='showJs(this.value)', value=(body.js || student.jsSkill))
+			.col-md-12
+				label Interests:
+				textarea.form-control(class={invalid: (errors.interests != null)}, name='interests', style='resize: none; height: 72px;')= (body.interests || student.interests.map(interest => interest.name).join(", "))
+			br
+			button.btn.btn-default.pull-right#btnSubmit(type='submit') Submit
+
+	div.col-md-2
+
+	script(type='text/javascript').
+		function showHtml(val) {
+			document.getElementById("htmlSkill").innerHTML = ' ' + val;
+		}
+		function showCss(val) {
+			document.getElementById("cssSkill").innerHTML = ' ' + val;
+		}
+		function showJs(val) {
+			document.getElementById("jsSkill").innerHTML = ' ' + val;
+		}

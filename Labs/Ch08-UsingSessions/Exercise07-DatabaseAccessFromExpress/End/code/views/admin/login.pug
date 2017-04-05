@@ -1,0 +1,14 @@
+extends ../layout
+
+block content
+	.col-md-3
+
+	.col-md-6
+		form.form-group(role='form', action="/login", method="post")
+			div
+				label(for='inputPassword') Password:
+				input.form-control#inputPassword(type='password', name="password", placeholder='Password')
+			br
+			button.btn.btn-primary.pull-right(type='submit') Submit
+
+	.col-md-3

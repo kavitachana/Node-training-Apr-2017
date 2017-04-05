@@ -1,0 +1,12 @@
+{
+	"port": 3000,
+	"database": {
+		"hostname": "localhost",
+		"username": "postgres",
+		"password": "password",
+		"database": "studentmanagement"
+	},
+	"sessions": {
+		"secret": "<secret key goes here>"
+	}
+}

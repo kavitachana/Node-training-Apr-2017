@@ -1,0 +1,6 @@
+[
+    { "firstName": "Mike", "lastName": "Eismann", "city": "pittsburgh" },
+    { "firstName": "Janet", "lastName": "bular", "city": "bentleyville" },
+    { "firstName": "Shariq", "lastName": "Parvez", "city": "cranberry twp." },
+    { "firstName": "Ambika", "lastName": "dwibedi", "city": "New Delhi" }
+]
