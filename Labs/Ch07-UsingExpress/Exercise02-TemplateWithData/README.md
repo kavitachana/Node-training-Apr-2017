@@ -86,6 +86,18 @@
 	
 			include foot
 	```
+
+1. Notice that use of include foot? You can create foot.pug with this information:
+```
+footer.footer
+	.container
+		ul.nav.navbar-nav.navbar-right
+			li
+				a(href="/") Home
+			//li
+				a(class="disabled") &copy; 2017 Karmoxie
+```
+
 1. Index.pug and any other file extend layout and will contain the content for each page
 	```pug
 	extends layout
