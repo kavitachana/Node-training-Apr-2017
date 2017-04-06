@@ -1,6 +1,8 @@
-add stes here to review the code
+review the code in server.js
 
-start server
+start server:
+node server
 
-see output
+Visit: http://localhost:3000
+
 

@@ -2,7 +2,7 @@
 simpleServer.js
 
 2. Run simpleServer.js
-$node simpleServer
+node simpleServer
 
 3. Navigate to 
 http://localhost:3000
