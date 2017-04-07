@@ -1,7 +1,10 @@
 # Chapter 9 Exercise 11: Input Validation
-## Objectives:
-* You will create a basic server using Express.
-* A router will be used to set a response for /
+## New concepts:
+* Validating input
+* Displaying errors to the user by re-rendering forms
+* Pre-filling form data
+* Highlighting invalid fields + conditional classes in Pug
+
 ## Steps
 1. You need to navigate to the directory Labs/Ch09-Validation-Security-RelationalData/Exercise11-InputValidation/__End__/code
 1. Install: `checkit`
