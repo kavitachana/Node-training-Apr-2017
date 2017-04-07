@@ -1,1 +1,1 @@
-View the ../README.md
+Find the instructions here: https://github.com/JudyLipinski/NodeJS-withPostgreSQL/tree/master/Labs/Ch08-UsingSessions/Exercise08-UserManagement

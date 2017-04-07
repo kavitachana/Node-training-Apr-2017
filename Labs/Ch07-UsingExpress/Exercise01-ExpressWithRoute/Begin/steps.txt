@@ -1,1 +1,1 @@
-View the README.md in the ../directory
+Find the instructions here: https://github.com/JudyLipinski/NodeJS-withPostgreSQL/tree/master/Labs/Ch07-UsingExpress/Exercise01-ExpressWithRoute
