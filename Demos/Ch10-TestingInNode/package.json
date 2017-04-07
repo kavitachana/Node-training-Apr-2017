@@ -4,13 +4,15 @@
   "private": true,
   "description": "My awesome band code",
   "scripts": {
-     "test": "mocha"
+    "test": "mocha",
+    "istanbul": "istanbul cover"
   },
   "author": "Me",
   "license": "MIT",
   "devDependencies": {
     "chai": "^3.5.0",
     "chai-as-promised": "^6.0.0",
+    "istanbul": "^0.4.5",
     "mocha": "^2.3.3",
     "sinon": "^1.17.2"
   }
