@@ -5,7 +5,7 @@
 
 
 ## Steps:
-1. You need to navigate to the directory `Labs/Ch08-UsingSessions/Exercise10-Logout/End/code`
+1. You need to navigate to the directory Labs/Ch08-UsingSessions/Exercise10-Logout/__End__/code
 1. Note how in `routes/users.js`, a new route for `/logout` has been added - this route will destroy the session that the user has (effectively logging them out), and then redirects them back to `/`.
 1. Accordingly, the `views/layout.pug` template has been updated to include a Logout button, that’s only visible when the user is logged in.
 ## Run the application

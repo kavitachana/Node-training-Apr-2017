@@ -4,7 +4,7 @@
 * Pass data (locals) to rendered templates
 
 ## Steps
-1. You need to navigate to the directory `Labs/Ch07-UsingExpress/Exercise02-TemplateWithData/Begin/code`
+1. You need to navigate to the directory Labs/Ch07-UsingExpress/Exercise02-TemplateWithData/__Begin__/code
 1. Install Pug with `npm install --save pug`
 1. Edit server.js
     - Use require to define a path
@@ -15,7 +15,7 @@
 		    - The string "views", which is the name of the folder where we're storing the view
     - Call the `app.set()` method to set the view engine to pug
 1. Open the index.js routing file for editing
-    - Change the route to`res.render` instead of calling `res.send` 
+    - Change the route to`res.render` instead of calling `res.send`
 	- Pass the string "index", which is the filename (without extension) of the view that we want to render
 ## Steps to add template data:
 1. Install Moment.js: `npm install --save moment`
@@ -40,7 +40,7 @@
 			email: "Nettie.McGlynn@gmail.com",
 			hireDate: moment("08/29/2015", "MM/DD/YYYY")
 		}];
-    ```  
+    ```
 1. Also add to routes/index.js
      - Modify the `res.render()` call in the `/` route, to pass in a second argument - an object that contains the `students` variable as the `students` property [these are the locals passed to the template]
      - Create a new route for the "/class" path that renders the "class" template, passing in a similar object containing the `students`
@@ -59,7 +59,7 @@
 			meta(http-equiv='X-UA-Compatible', content='IE=edge')
 			meta(name='viewport', content='width=device-width, initial-scale=1')
 			title Class Management App
-	
+
 			link(rel='stylesheet', href='/css/bootstrap.min.css')
 			link(rel='stylesheet', href='/css/custom.css')
 		body
@@ -80,10 +80,10 @@
 								a(href="/class") Tools
 							li
 								a(href="/about") About
-	
+
 			.container.content
 				block content
-	
+
 			include foot
 	```
 
@@ -101,19 +101,19 @@ footer.footer
 1. Index.pug and any other file extend layout and will contain the content for each page
 	```pug
 	extends layout
-    
+
     block content
     	header.page-header
     		h1 Student Manager Application
-    
+
     	.search.container-fluid(style="text-align: center;")
     		.col-md-3
     		form.col-md-6
     			input.form-control#inputSearch(type="text", onkeyup="filter()", placeholder="Search (name, email or hire date)")
     		.col-md-3
-    
+
     	.col-md-2
-    
+
     	.students.col-md-8
     		table.table#studentList
     			thead
@@ -125,17 +125,17 @@ footer.footer
     					td #{student.nameFirst} #{student.nameLast}
     					td #{student.email}
     					td #{student.hireDate.format("MM/DD/YYYY")}
-    
+
     	.col-md-2
 	```
 1. Create class view
 	```pug
 	extends layout
-    
+
     block content
     	header.page-header
     		h1 Classroom Tools
-    
+
     	// TODO: Debug/Update - Add time instead of set
     	.container-fluid
     		.col-md-3
@@ -150,7 +150,7 @@ footer.footer
     				div
     					span.timer 00 : 00
     		.col-md-3
-    
+
     	.container-fluid
     		.col-md-3
     		.random-student.col-md-6
@@ -160,7 +160,7 @@ footer.footer
     			if (!students)
     				span#student  No students loaded
     		.col-md-3
-    
+
     	script(src='/js/timer.js')
     	if (students)
     		script.
@@ -168,13 +168,13 @@ footer.footer
     			var data = !{JSON.stringify(students)};
     			function selectStudent() {
     				var i, names = [];
-    
+
     				for (i = 0; i < data.length; i++) {
     					names.push(data[i].nameFirst);
     				}
-    
+
     				var setStudent = names[Math.floor(Math.random() * names.length)];
-    
+
     				$("#student").html(setStudent);
     			}
 
@@ -182,11 +182,11 @@ footer.footer
 1. Create about view
 	```pug
 	extends layout
-    
+
     block content
     	header.page-header
     		h1 About
-    
+
     		h2 Student Manager Application
     	.about
     		strong Student Manager Application

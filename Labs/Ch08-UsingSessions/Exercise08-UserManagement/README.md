@@ -6,7 +6,7 @@
 * Using a custom middleware to make the user object itself available on the `req` object, doing a database query for each request
 
 ## Steps
-1. You need to navigate to the directory `Labs/Ch08-UsingSessions/Exercise08-UsingSessions/End/code`
+1. You need to navigate to the directory Labs/Ch08-UsingSessions/Exercise08-UsingSessions/__End__/code
 1. Install: `scrypt-for-humans`, `database-error`
 	- Note how a new migration has been added at `20170325191954_users.js`, defining the ‘users’ table. Especially important is the `.unique()` property on the `username` column.
 	- Note how `routes/users.js` has changed:

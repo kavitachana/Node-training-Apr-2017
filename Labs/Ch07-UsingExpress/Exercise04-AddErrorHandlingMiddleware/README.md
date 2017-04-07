@@ -6,14 +6,14 @@
 * Object destructuring for 'unpacking' items from that state object in the wrapper function
 * Use Error-handling Express middleware
 ## Steps
-1. You need to navigate to the directory `Labs/Ch07-UsingExpress/Exercise04-ErrorHandlingMiddleware/Begin/code`
+1. You need to navigate to the directory Labs/Ch07-UsingExpress/Exercise04-ErrorHandlingMiddleware/__Begin__/code
 1. Install unhandled-error: `npm install --save unhandled-error`
 1. Install express-promise-router: `npm install --save express-promise-router`
 1. Open the file `server.js` for editing. Require the `unhandled-error` library as a `const` named `unhandledError`
 1. Call `unhandledError()` with the following single argument, and store the result in a new variable named `errorReporter`: [this is the unhandled error handler]
-	1. A callback that accepts an `err` argument and makes a call to `console.error()`, 
+	1. A callback that accepts an `err` argument and makes a call to `console.error()`,
 	with the following argument:
-		1. The `stack` property of the `err` object, which contains the message and 
+		1. The `stack` property of the `err` object, which contains the message and
 		stacktrace for the error
 1. Open the server.js file for editing
 	- Create a `state` variable containing an object, that stores the `errorReporter` in a property with the same name - this object will be passed around to other modules, so that they can access the `errorReporter` if needed.

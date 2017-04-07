@@ -1,9 +1,9 @@
 # Chapter 7 Exercise 1: Simple Express Server with routes
 ## Objectives:
 * You will create a basic server using Express.
-* A router will be used to set a response for / 
+* A router will be used to set a response for /
 ## Steps
-1. You need to navigate to the directory `Labs/Ch07-UsingExpress/Exercise01-SimpleExpressServer/Begin`
+1. You need to navigate to the directory Labs/Ch07-UsingExpress/Exercise01-SimpleExpressServer/__Begin__
 1. In this folder, create a new Node.js project: `npm init -y`
 1. Install Express: `npm install --save express`
 1. Create a `config.json` file, containing a `port` key with the value `3000`
@@ -11,7 +11,7 @@
     - Require the `express` library as a `const` named `express`
     - Call `express()`, and store the result in a new variable named `app` [this is the Express application]
  Require the `config.json` file as a `const` named `config`
-    - Call the `app.listen()` method, and pass in as arguments:  
+    - Call the `app.listen()` method, and pass in as arguments:
         - The port number, coming from `config.port`
         - A callback function that uses `console.log` to display a message that you're listening on the configured port
 1. Create a `routes/index.js` file
@@ -28,4 +28,3 @@
 1. Run the server `nodemon server.js`
 1. Point a browser at the URL `http://localhost:3000`
 1. You should see the output from the server. If not fix any problems. And refresh the browser.
-
