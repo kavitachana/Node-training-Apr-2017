@@ -1,6 +1,6 @@
 # Chapter 7 Exercise 1: Simple Express Server with routes
 ## Objectives:
-* You will create a basic server using Express.
+* This exercise will create a basic server using Express.
 * A router will be used to set a response for /
 ## Steps
 1. You need to navigate to the directory Labs/Ch07-UsingExpress/Exercise01-SimpleExpressServer/__Begin__

@@ -1,7 +1,7 @@
 # Chapter 7 Exercise 4: Add Error Handling Middleware
 ## Objectives:
-* You will use express-promise-router and unhandled-error
-* You will use a State object, for passing around stateful things (like the error reporter object) to modules
+* This exercise will use express-promise-router and unhandled-error
+* This exercise will use a State object, for passing around stateful things (like the error reporter object) to modules
 * Use Wrapper functions around module contents, for receiving that state object
 * Object destructuring for 'unpacking' items from that state object in the wrapper function
 * Use Error-handling Express middleware
