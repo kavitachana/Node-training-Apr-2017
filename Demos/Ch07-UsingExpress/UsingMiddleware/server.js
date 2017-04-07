@@ -12,8 +12,15 @@ app.get("/", (req, res) => {
 		<form method="post" action="/submit">
 			One: <input type="text" name="one"><br>
 			Two: <input type="text" name="two"><br>
-			Array one: <input type="text" name="arr[]"><br>
-			Array two: <input type="text" name="arr[]"><br>
+			Array Element One: <input type="text" name="arr[]"><br>
+			Array Element Two: <input type="text" name="arr[]"><br>
+			Starter:
+			<select id="starters" name="starters">
+				<option value="soup">Soup</option>
+				<option value="oysters">Oysters</option>
+				<option value="salmon">Smoked Salmon</option>
+			</select><br/>
+			
 			<button type="submit">Submit</button>
 		</form>
 	`);
