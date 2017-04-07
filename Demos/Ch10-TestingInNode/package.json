@@ -4,7 +4,7 @@
   "private": true,
   "description": "My awesome band code",
   "scripts": {
-    "test": "./node_modules/mocha/bin/mocha test/"
+     "test": "mocha"
   },
   "author": "Me",
   "license": "MIT",
