@@ -10,10 +10,10 @@
 * Conditional error logic; expose and log certain information under certain circumstances, but not under others
 
 ## Steps:
-1. You need to navigate to the directory `Labs/Ch08-UsingSessions/Exercise06-BasicAuthentication/End/code`
+1. You need to navigate to the directory Labs/Ch08-UsingSessions/Exercise06-BasicAuthentication/__End__/code
 1. Install: `body-parser`, `express-session`
 1. Open server.js, and note how the `body-parser` and `express-session` modules are required and set up on the application using `router.use`.
-1. Install: `bluebird`. 
+1. Install: `bluebird`.
 	- Note how a new file is created at `middleware/sessions-promises.js`, and it specifies a middleware that adds promisified session methods on every request object.
 	- Note how in server.js, the new `sessions-promises` module is required, and passed into `router.use` right after the initialization of the express-session middleware.
 	- Note how config.json now contains a randomly generated secret key, and how this is used in the express-session configuration in server.js.

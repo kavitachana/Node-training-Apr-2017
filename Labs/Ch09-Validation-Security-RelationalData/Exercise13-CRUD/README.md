@@ -1,6 +1,6 @@
-# Chapter 9: Exercise13: CRUD? DatabaseWork 
+# Chapter 9: Exercise13: CRUD
 ## New Concepts
-* Selecting specific single database items 
+* Selecting specific single database items
 * "Edit item" forms that prefill the original data
 * Updating database items
 * Sending JSON responses
@@ -8,7 +8,7 @@
 * Provide data validation using checkit
 
 ## Steps
-1. You need to navigate to the directory `Labs/Ch09-Validation-Security-RelationalData/Exercise13-CRUD/End/code`
+1. You need to navigate to the directory Labs/Ch09-Validation-Security-RelationalData/Exercise13-CRUD/__End__/code
 1. Note how in `errors.js`, a `NotFoundError` error type has been added.
 1. Note how in `views/layout.pug`, a new mixin was created (`valueInput`), for generating form fields that implement the “highlight invalid fields and pre-fill all fields” functionality that we’ve seen before. This allows us to repeat ourselves less - instead of reimplementing this logic for every single input field, we can just use the mixin. It works a bit like a function, but for templates.
 1. A new module is created at `lib/parse-hire-date.js`, containing a function that turns a user-specified date string into a JavaScript Date object (for insertion into the database). This is used later on, in the student add/edit routes.

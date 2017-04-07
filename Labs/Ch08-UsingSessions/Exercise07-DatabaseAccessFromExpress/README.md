@@ -18,7 +18,7 @@
 
 
 ## Steps:
-1. You need to navigate to the directory `Labs/Ch08-UsingSessions/Exercise07-DatabaseAccessFromExpress/End/code`
+1. You need to navigate to the directory Labs/Ch08-UsingSessions/Exercise07-DatabaseAccessFromExpress/__End__/code
 1. Install: faker, pg, knex, pick-item, range
 1. Note how database connection details have been added to the `config.json` file. These should work if you are using a class virtual machien setup. If not ask your instructor for the login details.
 1. Note how a `knexfile.js` has been created, that mostly just re-exports the database configuration values from `config.json` - but it does so in the specific format that Knex expects. This file is used by Knex and your application to configure database access.
