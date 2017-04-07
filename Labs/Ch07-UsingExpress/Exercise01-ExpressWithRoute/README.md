@@ -16,7 +16,7 @@
         - A callback function that uses `console.log` to display a message that you're listening on the configured port
 1. Create a `routes/index.js` file
     - Require the `express` library as a `const` named `express`
-    - Call `express.router()`, and store the result in a new variable named `router` [this is an Express router]
+    - Call `express.Router()`, and store the result in a new variable named `router` [this is an Express router]
     - Call the `router.get()` method, passing in as the arguments: [this creates a GET route]
         - The string "/" - this is the path on which the new route should be created
         - A callback (accepting a `req` and `res` argument), that specifies the logic to execute for the route [this is the 'route']
